@@ -7,6 +7,9 @@ import Menu from './menu'
 
 const headerStyle = css`
 width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
 `
 const logoTextStyle = css`
 color: #000;

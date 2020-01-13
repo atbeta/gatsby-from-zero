@@ -1,9 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
+
+const Container = styled.div`
+width: 100%;
+max-width: 800px;
+margin: auto;
+display: flex;
+flex-flow: column nowrap;
+justify-content: center;
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -34,16 +44,16 @@ const Layout = ({ children }) => {
   } = data.site.siteMetadata
 
   return (
-    <div className="container">
+    <Container>
       <Header
         siteTitle={title}
         siteLogo={logo}
         logoText={logoText}
         menuList={menuList}
       />
-      <div className="content">{children}</div>
-      <Footer copyrights={copyrights} />
-    </div>
+      <div>{children}</div>
+      <Footer copyrights={copyrights}/>
+    </Container>
   )
 }
 

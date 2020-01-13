@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { css } from "@emotion/core"
+
+const footerStyle = css`
+text-align: center;
+`
 
 const Footer = ({ copyrights }) => (
-  <footer>
+  <footer css={footerStyle} >
     {copyrights ? (
       <div
         dangerouslySetInnerHTML={{
@@ -12,7 +17,7 @@ const Footer = ({ copyrights }) => (
     ) : (
       <>
         <span className="footerCopyrights">
-          © 2020 Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+          Copyright © 2020 Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
         </span>
       </>
     )}
