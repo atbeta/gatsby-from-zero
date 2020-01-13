@@ -1,8 +1,29 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Way to Go`,
+    description: `拥抱 Gatsby，用 React 搭建完整博客系统`,
+    author: `@atbeta`,
+    copyrights: '',
+    logo: {
+      url: '',
+      alt: ''
+    },
+    logoText: 'Way to Go',
+    postPerPage: 6,
+    menuList: [
+      {
+        title: '主页',
+        path: '/'
+      },
+      {
+        title: '归档',
+        path: '/archives'
+      },
+      {
+        title: '关于',
+        path: '/about'
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,6 +56,13 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts all options defined by `babel-plugin-emotion` plugin.
+      },
+    },
+    `gatsby-plugin-theme-ui`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

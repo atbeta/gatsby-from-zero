@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 const Index = ({ data }) => {
   return (
     <Layout>
+
       <div>
         <h1>文章列表</h1>
         <h4>共{data.allMarkdownRemark.totalCount} 篇文章</h4>
