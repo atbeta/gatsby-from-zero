@@ -53,7 +53,7 @@ const PostCard = (props) => {
   return (
   <div css={cardStyle}>
   <div css={tagLineStyle}>
-    {tagList.map(item => <Tags>{item}</Tags>)}
+    {tagList.map((item, index) => <Tags key={index}>{item}</Tags>)}
     <span css={css`margin-left: auto;`}><FaRegBookmark /></span>
   </div>
   <Link to={props.fields.slug} css={css`text-decoration: none;`}>
@@ -64,9 +64,35 @@ const PostCard = (props) => {
   <p>{props.excerpt}</p>
   <div css={infoStyle}>
     <span className="info-item"><FaCalendarAlt className="fa-icon" />{props.frontmatter.date}</span>
-    <span className="info-item"><FaUser class="fa-icon" />{props.frontmatter.author}</span>
+    <span className="info-item"><FaUser className="fa-icon" />{props.frontmatter.author}</span>
   </div>
 </div>)
+}
+
+PostCard.propTypes = {
+  frontmatter: PropTypes.shape({
+    tag: PropTypes.array,
+    title: PropTypes.string,
+    date: PropTypes.string,
+    author: PropTypes.string
+  }),
+  fields: PropTypes.shape({
+    slug: PropTypes.string
+  }),
+  excerpt: PropTypes.string
+}
+
+PostCard.defaultProps = {
+  frontmatter: {
+    tag: [],
+    title: '',
+    date: '',
+    author: ''
+  },
+  fields: {
+    slug: ''
+  },
+  excerpt: ''
 }
 
 export default PostCard
