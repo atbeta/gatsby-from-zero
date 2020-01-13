@@ -1,5 +1,6 @@
 ---
 title: "示例 Markdown 文档"
+author: 'Beta'
 date: "2020-01-02"
 tag: ["测试"]
 ---

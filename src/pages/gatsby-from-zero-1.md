@@ -1,5 +1,6 @@
 ---
 title: "拥抱 Gatsby，用 React 搭建完整博客系统（一）—— 搭建 Gatsby 基础环境"
+author: 'Beta'
 date: "2019-12-23"
 tag: ["前端交流", "Gatsby"]
 ---

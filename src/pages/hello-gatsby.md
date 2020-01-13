@@ -1,5 +1,6 @@
 ---
 title: "Hello Gatsby!"
+author: 'Beta'
 date: "2020-01-02"
 tag: ["测试", "hello"]
 ---

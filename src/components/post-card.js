@@ -3,16 +3,21 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from '@emotion/styled'
 import { css } from "@emotion/core"
-import { FaRegBookmark } from 'react-icons/fa'
+import { FaRegBookmark, FaCalendarAlt, FaUser } from 'react-icons/fa'
 
 const cardStyle = css`
 margin-top: 20px;
 border-bottom: 1px solid rgba(0, 0, 0, .1);
 `
 const postTitleStyle = css`
+margin-top: 20px;
 font-size: 2em;
 font-weight: bold;
 line-height: 1.5;
+color: #000;
+&:hover {
+  color: #007bff;
+}
 `
 const Tags = styled.span`
 margin-right: 10px;
@@ -29,6 +34,20 @@ justify-content: flex-start;
 align-items: center;
 `
 
+const infoStyle = css`
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin-bottom: 20px;
+.info-item {
+  margin-right: 20px;
+  font-size: 14px;
+  .fa-icon {
+    margin-right: 5px;
+  }
+}
+`
+
 const PostCard = (props) => {
   const tagList = props.frontmatter.tag
   return (
@@ -42,8 +61,11 @@ const PostCard = (props) => {
     {props.frontmatter.title}
   </div>
   </Link>
-  <span>{props.frontmatter.date}</span>
   <p>{props.excerpt}</p>
+  <div css={infoStyle}>
+    <span className="info-item"><FaCalendarAlt className="fa-icon" />{props.frontmatter.date}</span>
+    <span className="info-item"><FaUser class="fa-icon" />{props.frontmatter.author}</span>
+  </div>
 </div>)
 }
 
