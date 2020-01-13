@@ -1,6 +1,7 @@
 ---
 title: "Hello Gatsby!"
 date: "2020-01-02"
+tag: ["测试", "hello"]
 ---
 
 ## Hello Gatsby！
