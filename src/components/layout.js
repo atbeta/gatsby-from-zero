@@ -1,11 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { css } from "@emotion/core"
+import { css, Global } from "@emotion/core"
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
 import Footer from './footer'
+
+const globalStyle = css`
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`
 
 const Container = styled.div`
 width: 100%;
@@ -49,6 +59,7 @@ const Layout = ({ children }) => {
 
   return (
     <Container>
+      <Global styles={globalStyle}/>
       <Header
         siteTitle={title}
         siteLogo={logo}
