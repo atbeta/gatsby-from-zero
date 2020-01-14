@@ -47,52 +47,71 @@ margin-bottom: 20px;
   }
 }
 `
+const coverStyle = css`
+img {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+`
 
 const PostCard = (props) => {
-  const tagList = props.frontmatter.tag
+  const tagList = props.tags
+  const coverUrl = props.cover ? props.cover.publicURL : ''
   return (
   <div css={cardStyle}>
+  <div css={coverStyle}>
+    <img alt="" src={coverUrl}></img>
+  </div>
   <div css={tagLineStyle}>
-    {tagList.map((item, index) => <Tags key={index}>{item}</Tags>)}
+    {tagList.map((item, index) => <Tags key={index}>{item.name}</Tags>)}
     <span css={css`margin-left: auto;`}><FaRegBookmark /></span>
   </div>
-  <Link to={props.fields.slug} css={css`text-decoration: none;`}>
+  <Link to={props.url} css={css`text-decoration: none;`}>
   <div css={postTitleStyle}>
-    {props.frontmatter.title}
+    {props.title}
   </div>
   </Link>
   <p>{props.excerpt}</p>
   <div css={infoStyle}>
-    <span className="info-item"><FaCalendarAlt className="fa-icon" />{props.frontmatter.date}</span>
-    <span className="info-item"><FaUser className="fa-icon" />{props.frontmatter.author}</span>
+    <span className="info-item"><FaCalendarAlt className="fa-icon" />{props.createdAt}</span>
+    <span className="info-item"><FaUser className="fa-icon" />{props.author.username}</span>
   </div>
 </div>)
 }
 
 PostCard.propTypes = {
-  frontmatter: PropTypes.shape({
-    tag: PropTypes.array,
-    title: PropTypes.string,
-    date: PropTypes.string,
-    author: PropTypes.string
+  author: PropTypes.shape({
+    username: PropTypes.string
   }),
-  fields: PropTypes.shape({
-    slug: PropTypes.string
+  cover: PropTypes.shape({
+    publicURL: PropTypes.string
   }),
-  excerpt: PropTypes.string
+  tags: PropTypes.array,
+  title: PropTypes.string,
+  content: PropTypes.string,
+  excerpt: PropTypes.string,
+  id: PropTypes.string,
+  url: PropTypes.string,
+  public: PropTypes.bool,
+  createdAt: PropTypes.string
 }
 
 PostCard.defaultProps = {
-  frontmatter: {
-    tag: [],
-    title: '',
-    date: '',
-    author: ''
+  author: {
+    username: ''
   },
-  fields: {
-    slug: ''
+  cover: {
+    publicURL: ''
   },
-  excerpt: ''
+  tags: [],
+  title: '',
+  content: '',
+  excerpt: '',
+  id: '',
+  url: '',
+  public: true,
+  createdAt: ''
 }
 
 export default PostCard

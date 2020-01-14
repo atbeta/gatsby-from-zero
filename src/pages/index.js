@@ -4,10 +4,11 @@ import Layout from "../components/layout"
 import PostCard from '../components/post-card'
 
 const Index = ({ data }) => {
+  console.log(data)
   return (
     <Layout>
       <div>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        {data.allStrapiPost.edges.map(({ node }) => (
           <PostCard {...node} key={node.id}/>
         ))}
       </div>
@@ -19,23 +20,28 @@ export default Index
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-            tag
-            author
-          }
-          fields {
-            slug
-          }
-          excerpt(pruneLength: 200)
+    allStrapiPost {
+    edges {
+      node {
+        content
+        id
+        title
+        excerpt
+        createdAt
+        url
+        public
+        cover {
+          publicURL
+        }
+        tags {
+          name
+          slug
+        }
+        author {
+          username
         }
       }
     }
+  }
   }
 `

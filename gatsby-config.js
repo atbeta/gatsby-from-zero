@@ -77,7 +77,20 @@ module.exports = {
         // Accepts all options defined by `babel-plugin-emotion` plugin.
       },
     },
-    `gatsby-plugin-theme-ui`
+    `gatsby-plugin-theme-ui`,
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://db.pup.pub:1337`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`post`, `tag`, `user`],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        loginData: {
+          identifier: "",
+          password: "",
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

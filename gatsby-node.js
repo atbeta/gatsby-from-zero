@@ -18,32 +18,32 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: slug,
     })
   }
+  if (node.internal.type === `StrapiPost`) {}
 }
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions // highlight-line
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allStrapiPost {
         edges {
           node {
-            fields {
-              slug
-            }
+            id
+            url
           }
         }
       }
     }
   `)
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allStrapiPost.edges.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
+      path: node.url,
       component: path.resolve(`./src/templates/post.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.fields.slug,
+        id: node.id,
       },
     })
   })
