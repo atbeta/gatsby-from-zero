@@ -3,17 +3,25 @@ import PropTypes from "prop-types"
 import React from "react"
 import { css } from "@emotion/core"
 import styled from '@emotion/styled'
+import { Container } from '@theme-ui/components'
 
 import Menu from './menu'
 
 const headerStyle = css`
 width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
+background: rgba(0, 0, 0, .8);
+position: fixed;
+top: 0;
+padding: 20px 0;
+z-index: 9999;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 `
 const logoTextStyle = css`
-color: #000;
+color: #fff;
 font-size: 22px;
 font-weight: 700;
 `
@@ -34,11 +42,13 @@ display: inline-block;
 
 const Header = ({ siteTitle,menuList }) => (
   <header css={headerStyle}>
+    <Container className="header-container">
       <Link to="/" css={css`text-decoration: none;`}>
         <span css={logoTextStyle}>{siteTitle}</span>
         <Cursor />
       </Link>
       <Menu menuList={menuList} />
+    </Container>
   </header>
 )
 

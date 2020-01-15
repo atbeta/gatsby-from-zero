@@ -4,4 +4,12 @@ export default {
   styles: {
     ...bootstrap.styles,
   },
+  sizes: {
+    container: 960
+  },
+  links: {
+    nav: {
+      color: '#fff'
+    }
+  }
 }

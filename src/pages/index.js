@@ -2,16 +2,17 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PostCard from '../components/post-card'
+import { Container } from '@theme-ui/components'
 
 const Index = ({ data }) => {
   console.log(data)
   return (
     <Layout>
-      <div>
+      <Container>
         {data.allStrapiPost.edges.map(({ node }) => (
           <PostCard {...node} key={node.id}/>
         ))}
-      </div>
+      </Container>
     </Layout>
   )
 }
@@ -30,6 +31,7 @@ export const query = graphql`
         createdAt
         url
         public
+        featured
         cover {
           publicURL
         }

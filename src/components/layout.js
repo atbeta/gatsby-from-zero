@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
 import { css, Global } from "@emotion/core"
 import { useStaticQuery, graphql } from 'gatsby'
 
@@ -17,15 +16,8 @@ const globalStyle = css`
   }
 `
 
-const Container = styled.div`
-width: 100%;
-max-width: 800px;
-margin: auto;
-display: flex;
-flex-flow: column nowrap;
-justify-content: center;
-`
 const contentStyle = css`
+width: 100%;
 margin-top: 20px;
 `
 
@@ -58,7 +50,7 @@ const Layout = ({ children }) => {
   } = data.site.siteMetadata
 
   return (
-    <Container>
+    <>
       <Global styles={globalStyle}/>
       <Header
         siteTitle={title}
@@ -66,9 +58,9 @@ const Layout = ({ children }) => {
         logoText={logoText}
         menuList={menuList}
       />
-      <div css={contentStyle}>{children}</div>
+        <div css={contentStyle}>{children}</div>
       <Footer copyrights={copyrights}/>
-    </Container>
+    </>
   )
 }
 
