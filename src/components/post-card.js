@@ -54,6 +54,9 @@ img {
   margin-bottom: 20px;
 }
 `
+const excerptStyle = css`
+line-height: 1.5em;
+`
 
 const PostCard = (props) => {
   const tagList = props.tags
@@ -72,7 +75,7 @@ const PostCard = (props) => {
     {props.title}
   </div>
   </Link>
-  <p>{props.excerpt}</p>
+  <p css={excerptStyle}>{props.excerpt}</p>
   <div css={infoStyle}>
     <span className="info-item"><FaCalendarAlt className="fa-icon" />{props.createdAt}</span>
     <span className="info-item"><FaUser className="fa-icon" />{props.author.username}</span>
