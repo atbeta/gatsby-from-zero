@@ -14,7 +14,7 @@ export default ({ data }) => {
     <Layout>
       <Cover
         title={post.title}
-        imageUrl={post.cover.publicURL}
+        cover={post.cover}
         tags={post.tags}
         author={post.author}
         createdAt={post.createdAt}

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css, Global } from "@emotion/core"
 import { useStaticQuery, graphql } from 'gatsby'
+import SEO from './seo'
 
 import Header from './header'
 import Footer from './footer'
@@ -18,7 +19,6 @@ const globalStyle = css`
 
 const contentStyle = css`
 width: 100%;
-margin-top: 20px;
 `
 
 const Layout = ({ children }) => {
@@ -52,6 +52,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Global styles={globalStyle}/>
+      <SEO title="Way to Go"/>
       <Header
         siteTitle={title}
         siteLogo={logo}

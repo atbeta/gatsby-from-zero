@@ -10,6 +10,7 @@
     "@mdx-js/react": "^1.5.3",
     "@theme-ui/components": "^0.2.50",
     "@theme-ui/presets": "^0.2.44",
+    "animate.css": "^3.7.2",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-emotion": "^4.1.18",

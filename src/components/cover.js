@@ -67,11 +67,10 @@ margin-bottom: 30px;
 `
 
 const Cover = props => {
-  console.log(props)
   const tagList = props.tags
   const height = `100vh`
   return (
-    <CoverContainer height={height} bg={props.imageUrl}>
+    <CoverContainer height={height} bg={props.cover.publicURL}>
       <Container css={containerStyle}>
         <div className="tag-container">
           {tagList.map((item, index) => <Tags key={index}>{item.name}</Tags>)}

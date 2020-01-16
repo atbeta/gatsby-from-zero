@@ -48,10 +48,15 @@ margin-bottom: 20px;
 }
 `
 const coverStyle = css`
+overflow: hidden;
+margin-bottom: 20px;
 img {
   display: block;
   width: 100%;
-  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+  :hover {
+    transform: scale(1.1, 1.1);
+  }
 }
 `
 const excerptStyle = css`
