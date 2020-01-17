@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { css } from "@emotion/core"
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Cover from './cover'
 
 const bannerStyle = css`
+width: 100%;
 height: 100vh;
 overflow: hidden;
-.banner-item {
-  display: inline-block;
-  transition: all 0.3s ease-in-out;
+display: none;
+&:first-child {
+  display: block;
 }
 `
 
@@ -17,13 +19,24 @@ const Banner = props => {
     const swiper = setInterval(() => {
       list.push(list.shift())
       setList([...list])
-    }, 2000)
+    }, 3000)
     return () => clearInterval(swiper)
   })
   return (
-    <div css={bannerStyle}>
-      <Cover {...list[0].node} className="banner-item" key={list[0].node.id}></Cover>
-    </div>
+      <ReactCSSTransitionGroup
+          transitionEnter={true}
+          transitionLeave={false}
+          transitionEnterTimeout={3000}
+          transitionLeaveTimeout={3000}
+          transitionName={{
+            enter: 'fadeIn',
+            leave: 'fadeOut',
+          }}
+        >
+        <div css={bannerStyle} className="animated" key={list[0].node.id}>
+            <Cover {...list[0].node} key={list[0].node}></Cover>
+        </div>
+      </ReactCSSTransitionGroup>
   )
 }
 
