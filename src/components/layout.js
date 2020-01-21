@@ -12,6 +12,7 @@ const globalStyle = css`
     box-sizing: border-box;
   }
   body {
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
     margin: 0;
     padding: 0;
   }

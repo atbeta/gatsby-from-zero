@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Way to Go`,
-    description: `拥抱 Gatsby，用 React 搭建完整博客系统`,
+    description: `以前端为起点，探索计算机网络生态。本站用于记录学习心得，欢迎交流。`,
     author: `@atbeta`,
     copyrights: '',
     logo: {
