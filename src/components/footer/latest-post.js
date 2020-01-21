@@ -5,11 +5,13 @@ import { Link } from "gatsby"
 import { FaCalendarAlt } from 'react-icons/fa'
 
 const latestPostStyle = css`
+a {
+  text-decoration: none;
+}
 .post-title {
   font-weight: 600;
   margin-bottom: 5px;
   color: white;
-  text-decoration: none;
   &:hover {
   color: #007bff;
 }
